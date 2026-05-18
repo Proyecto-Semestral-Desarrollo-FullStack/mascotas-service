@@ -50,7 +50,6 @@ public class MascotaController {
         return ResponseEntity.noContent().build();
     }
 
-    // Endpoint interno para validación entre microservicios
     @GetMapping("/existe/{id}")
     public ResponseEntity<Boolean> existeMascota(@PathVariable Long id) {
         return ResponseEntity.ok(mascotaService.existeMascota(id));

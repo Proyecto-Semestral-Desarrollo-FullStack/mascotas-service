@@ -18,7 +18,6 @@ public class MascotaService {
     private final UsuarioClientService usuarioClientService;
 
     public MascotaResponse crear(MascotaRequest request) {
-        // Validación cruzada con usuarios-service
         if (!usuarioClientService.existeUsuario(request.getClienteId())) {
             throw new IllegalArgumentException(
                     "El cliente con id " + request.getClienteId() + " no existe en el sistema");
@@ -30,7 +29,6 @@ public class MascotaService {
                 .fechaNacimiento(request.getFechaNacimiento())
                 .clienteId(request.getClienteId())
                 .build();
-
         return toResponse(mascotaRepository.save(mascota));
     }
 
